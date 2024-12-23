@@ -37,6 +37,25 @@ afterEvaluate {
                 artifactId = "FeatureToggle"
                 version = "1.0.0"
                 artifact(tasks.getByName("bundleReleaseAar"))
+                pom {
+                    withXml {
+                        val dependenciesNode = asNode().appendNode("dependencies")
+                        configurations.api.get().dependencies.forEach { dependency ->
+                            val dependencyNode = dependenciesNode.appendNode("dependency")
+                            dependencyNode.appendNode("groupId", dependency.group)
+                            dependencyNode.appendNode("artifactId", dependency.name)
+                            dependencyNode.appendNode("version", dependency.version)
+                            dependencyNode.appendNode("scope", "compile")
+                        }
+                        configurations.implementation.get().dependencies.forEach { dependency ->
+                            val dependencyNode = dependenciesNode.appendNode("dependency")
+                            dependencyNode.appendNode("groupId", dependency.group)
+                            dependencyNode.appendNode("artifactId", dependency.name)
+                            dependencyNode.appendNode("version", dependency.version)
+                            dependencyNode.appendNode("scope", "runtime")
+                        }
+                    }
+                }
             }
         }
     }
