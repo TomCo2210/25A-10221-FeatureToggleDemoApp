@@ -15,13 +15,15 @@ public class FeatureController {
     private static final String BASE_URL = "https://25-a-10221-feature-toggle-flask-api.vercel.app/";
 
     private FeatureAPI getAPI() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(
+                        GsonConverterFactory.create(
+                            new GsonBuilder()
+                                .setLenient()
+                                .create()
+                        )
+                )
                 .build();
 
         return retrofit.create(FeatureAPI.class);

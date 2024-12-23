@@ -20,3 +20,5 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class dev.tomco.featuretogglelib.FeatureController { *; }
+-keep class com.google.gson.** { *; }
+-keepattributes Signature

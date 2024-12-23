@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         FeatureToggle.getActiveFeatures(
                 this,
-                new FeatureToggle.CallBack<List<Feature>>() {
+                new FeatureToggle.Callback_Data<List<Feature>>() {
 
                     @Override
                     public void data(List<Feature> value) {
