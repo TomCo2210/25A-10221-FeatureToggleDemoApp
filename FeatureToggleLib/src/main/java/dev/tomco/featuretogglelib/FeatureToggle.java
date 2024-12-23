@@ -7,9 +7,7 @@ import java.util.List;
 
 public class FeatureToggle {
 
-    public static final int ERROR = -1;
-    public static final int OFF = 0;
-    public static final int ON = 1;
+    private static final FeatureController featureController = new FeatureController();
 
     public interface CallBack<T> {
         void data(T value);
@@ -20,19 +18,17 @@ public class FeatureToggle {
             return;
         }
 
-        FeatureController featureController = new FeatureController();
         featureController.fetchAllActiveFeatures(context.getPackageName(), new Callback_Features() {
             @Override
             public void ready(List<Feature> features) {
                 if (callBack != null) {
                     callBack.data(features);
                 }
-                Log.d("", "Feature: " + features.size());
             }
 
             @Override
             public void failed(String message) {
-                Log.d("", "failed: " + message);
+                Log.d("Error", "failed: " + message);
             }
         });
     }

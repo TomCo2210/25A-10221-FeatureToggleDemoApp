@@ -87,5 +87,16 @@ public class Feature {
         return this;
     }
 
-
+    @Override
+    public String toString() {
+        return "Feature{" +
+                "_id='" + _id + '\'' +
+                ", beginning_date='" + beginning_date + '\'' +
+                ", created_at='" + created_at + '\'' +
+                ", description='" + description + '\'' +
+                ", expiration_date='" + expiration_date + '\'' +
+                ", name='" + name + '\'' +
+                ", updated_at='" + updated_at + '\'' +
+                '}';
+    }
 }
