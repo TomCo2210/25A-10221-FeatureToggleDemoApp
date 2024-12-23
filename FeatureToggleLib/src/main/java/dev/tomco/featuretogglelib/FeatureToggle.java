@@ -21,9 +21,7 @@ public class FeatureToggle {
         featureController.fetchAllActiveFeatures(context.getPackageName(), new Callback_Features() {
             @Override
             public void ready(List<Feature> features) {
-                if (callBack != null) {
-                    callBack.data(features);
-                }
+                callBack.data(features);
             }
 
             @Override
