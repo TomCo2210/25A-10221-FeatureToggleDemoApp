@@ -8,7 +8,7 @@ material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.2.0"
 retrofit = "2.11.0"
-x5aX0221Featuretoggledemoapp = "1.1.2"
+featuretoggledemoapp = "1.1.3"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -20,7 +20,7 @@ activity = { group = "androidx.activity", name = "activity", version.ref = "acti
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
-x5a-x0221-featuretoggledemoapp = { module = "com.github.TomCo2210:25A-10221-FeatureToggleDemoApp", version.ref = "x5aX0221Featuretoggledemoapp" }
+featuretoggledemoapp = { module = "com.github.TomCo2210:25A-10221-FeatureToggleDemoApp", version.ref = "featuretoggledemoapp" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

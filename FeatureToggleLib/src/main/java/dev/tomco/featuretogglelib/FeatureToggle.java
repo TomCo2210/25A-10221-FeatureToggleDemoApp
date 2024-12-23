@@ -15,7 +15,7 @@ public class FeatureToggle {
         void data(T value);
     }
 
-    public static void getActiveFeatures(Context context, CallBack<List<Feature>> callBack) {
+    public static void getActiveFeatures(Context context, FeatureToggle.CallBack<List<Feature>> callBack) {
         if (callBack == null) {
             return;
         }
