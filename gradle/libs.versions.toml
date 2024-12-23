@@ -8,7 +8,7 @@ material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.2.0"
 retrofit = "2.11.0"
-featuretoggledemoapp = "1.1.8"
+featuretoggledemoapp = "1.1.9"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
