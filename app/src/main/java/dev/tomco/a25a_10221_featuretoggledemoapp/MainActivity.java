@@ -14,6 +14,7 @@ import java.util.List;
 import dev.tomco.featuretogglelib.Callback_Features;
 import dev.tomco.featuretogglelib.Feature;
 import dev.tomco.featuretogglelib.FeatureController;
+import dev.tomco.featuretogglelib.FeatureToggle;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,19 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FeatureController featureController =  new FeatureController();
-        featureController
-                .fetchAllActiveFeatures(
-                getPackageName(),
-                new Callback_Features() {
-                    @Override
-                    public void ready(List<Feature> featureList) {
-                        Log.d("Features:", "ready: " + featureList);
-                    }
+        FeatureToggle.getActiveFeatures(
+                this,
+                new FeatureToggle.CallBack<List<Feature>>() {
 
                     @Override
-                    public void failed(String message) {
-                        Log.d("ERROR", "failed: " + message);
+                    public void data(List<Feature> value) {
+                        for (Feature f : value)
+                            Log.d("Feature:", "" + f);
                     }
                 }
         );

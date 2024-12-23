@@ -12,7 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FeatureController {
-    private static final String BASE_URL = "25-a-10221-feature-toggle-flask-api.vercel.app";
+    private static final String BASE_URL = "https://25-a-10221-feature-toggle-flask-api.vercel.app/";
     private Callback_Features callbackFeatures;
 
     public FeatureController setCallbackFeatures(Callback_Features callbackFeatures) {

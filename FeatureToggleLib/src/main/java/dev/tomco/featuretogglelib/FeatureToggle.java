@@ -27,12 +27,12 @@ public class FeatureToggle {
                 if (callBack != null) {
                     callBack.data(features);
                 }
-                Log.d("pttt", "Feature: " + features.size());
+                Log.d("", "Feature: " + features.size());
             }
 
             @Override
             public void failed(String message) {
-                Log.d("pttt", "failed: " + message);
+                Log.d("", "failed: " + message);
             }
         });
     }
