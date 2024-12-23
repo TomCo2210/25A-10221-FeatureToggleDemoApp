@@ -9,11 +9,11 @@ public class FeatureToggle {
 
     private static final FeatureController featureController = new FeatureController();
 
-    public interface CallBack<T> {
+    public interface Callback_Data<T> {
         void data(T value);
     }
 
-    public static void getActiveFeatures(Context context, FeatureToggle.CallBack<List<Feature>> callBack) {
+    public static void getActiveFeatures(Context context, Callback_Data<List<Feature>> callBack) {
         if (callBack == null) {
             return;
         }

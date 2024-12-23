@@ -13,12 +13,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FeatureController {
     private static final String BASE_URL = "https://25-a-10221-feature-toggle-flask-api.vercel.app/";
-    private Callback_Features callbackFeatures;
-
-    public FeatureController setCallbackFeatures(Callback_Features callbackFeatures) {
-        this.callbackFeatures = callbackFeatures;
-        return this;
-    }
 
     private FeatureAPI getAPI() {
         Gson gson = new GsonBuilder()
@@ -34,20 +28,17 @@ public class FeatureController {
     }
 
     public void fetchAllActiveFeatures(String package_name, Callback_Features callbackFeatures) {
-        setCallbackFeatures(callbackFeatures);
         Call<List<Feature>> call = getAPI().loadActiveFeatures(package_name);
-        call.enqueue(listCallback);
+        call.enqueue(new Callback<>() {
+            @Override
+            public void onResponse(Call<List<Feature>> call, Response<List<Feature>> response) {
+                callbackFeatures.ready(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Feature>> call, Throwable throwable) {
+                callbackFeatures.failed(throwable.getMessage());
+            }
+        });
     }
-
-    private Callback<List<Feature>> listCallback = new Callback<List<Feature>>() {
-        @Override
-        public void onResponse(Call<List<Feature>> call, Response<List<Feature>> response) {
-            callbackFeatures.ready(response.body());
-        }
-
-        @Override
-        public void onFailure(Call<List<Feature>> call, Throwable throwable) {
-            callbackFeatures.failed(throwable.getMessage());
-        }
-    };
 }
