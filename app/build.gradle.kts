@@ -41,6 +41,6 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-//    implementation(libs.featuretoggledemoapp)
-    implementation(project(":FeatureToggleLib"))
+    implementation(libs.featuretoggledemoapp)
+//    implementation(project(":FeatureToggleLib"))
 }
