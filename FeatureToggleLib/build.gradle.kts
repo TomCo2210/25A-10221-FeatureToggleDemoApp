@@ -37,7 +37,6 @@ afterEvaluate {
                 artifactId = "FeatureToggle"
                 version = "1.0.0"
                 artifact(tasks.getByName("bundleReleaseAar"))
-
             }
         }
     }
