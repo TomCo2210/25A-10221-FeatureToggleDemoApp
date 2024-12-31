@@ -43,4 +43,9 @@ dependencies {
 
     implementation(libs.featuretoggledemoapp)
 //    implementation(project(":FeatureToggleLib"))
+
+    //Glide:
+    implementation (libs.glide)
+
+
 }

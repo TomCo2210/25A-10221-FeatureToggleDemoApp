@@ -18,7 +18,10 @@ public class FeatureToggle {
             return;
         }
 
-        featureController.fetchAllActiveFeatures(context.getPackageName(), new Callback_Features() {
+        featureController
+                .fetchAllActiveFeatures(
+                        context.getPackageName(),
+                        new Callback_Features() {
             @Override
             public void ready(List<Feature> features) {
                 callBack.data(features);
